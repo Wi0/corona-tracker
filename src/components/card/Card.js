@@ -2,6 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 
 const CardContainer = props => {
+  let deathRate = (props.deaths / props.cases) * 100;
   return (
     <>
       <Card
@@ -15,9 +16,7 @@ const CardContainer = props => {
           <Card.Text>Cases: {props.cases}</Card.Text>
           <Card.Text>Deaths: {props.deaths}</Card.Text>
           <Card.Text>Recoveries: {props.recoveries}</Card.Text>
-          <Card.Text>
-            Death rate: {(props.deaths / props.cases) * 100}%
-          </Card.Text>
+          <Card.Text>Death rate: {deathRate.toFixed(1)}%</Card.Text>
         </Card.Body>
       </Card>
       <br />
