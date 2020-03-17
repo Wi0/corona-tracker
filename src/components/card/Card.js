@@ -15,6 +15,9 @@ const CardContainer = props => {
           <Card.Text>Cases: {props.cases}</Card.Text>
           <Card.Text>Deaths: {props.deaths}</Card.Text>
           <Card.Text>Recoveries: {props.recoveries}</Card.Text>
+          <Card.Text>
+            Death rate: {(props.deaths / props.cases) * 100}%
+          </Card.Text>
         </Card.Body>
       </Card>
       <br />
