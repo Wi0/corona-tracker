@@ -1,21 +1,20 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 
-const CardContainer = ({ variant }) => {
+const CardContainer = props => {
   return (
     <>
       <Card
-        bg={variant}
-        text={variant === "light" ? "dark" : "white"}
-        style={{ width: "18rem" }}
+        bg={props.variant}
+        text="light"
+        // style={{ width: "18rem" }}
+        className="justify-content-center"
       >
-        <Card.Header>Header</Card.Header>
+        <Card.Header>{props.title}</Card.Header>
         <Card.Body>
-          <Card.Title>{variant} Card Title </Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
+          <Card.Text>Cases: {props.cases}</Card.Text>
+          <Card.Text>Deaths: {props.deaths}</Card.Text>
+          <Card.Text>Recoveries: {props.recoveries}</Card.Text>
         </Card.Body>
       </Card>
       <br />
