@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CardContainer from "./components/card/Card";
 import SpinnerIcon from "./components/Spinner/Spinner";
+import Nav from "./components/Navbar/Navbar";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -26,12 +27,13 @@ function App() {
 
   return (
     <div className="App">
+      <Nav />
       <Container>
         <h1 style={{ textAlign: "center" }}>
           Total deaths: {totalData.deaths}
         </h1>
       </Container>
-      <Container fluid="true">
+      <Container fluid="true" style={{ margin: "0 40px" }}>
         <Row className="justify-content-md-center">
           {!loading && countryData ? (
             countryData.map(({ country, deaths, cases, recovered }) => (

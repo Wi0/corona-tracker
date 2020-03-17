@@ -10,7 +10,7 @@ const CardContainer = props => {
         // style={{ width: "18rem" }}
         className="justify-content-center"
       >
-        <Card.Header>{props.title}</Card.Header>
+        <Card.Header as="h3">{props.title}</Card.Header>
         <Card.Body>
           <Card.Text>Cases: {props.cases}</Card.Text>
           <Card.Text>Deaths: {props.deaths}</Card.Text>
