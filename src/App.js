@@ -31,17 +31,32 @@ function App() {
     setSelection({ ...selection, [i]: !select });
   };
 
+  const list = [
+    "Cases",
+    "Deaths",
+    "Recoveries",
+    "Death Rate",
+    "New Cases Today",
+    "Deaths Today",
+    "Critical Condition",
+    "Cases Per Million People"
+  ];
+
   return (
     <div className="App">
       <Nav />
-      <SideNav selectionHandler={selectionHandler} selection={selection} />
+      <SideNav
+        selectionHandler={selectionHandler}
+        selection={selection}
+        list={list}
+      />
       <Container>
         <h1 style={{ textAlign: "center" }}>
           Total deaths: {totalData.deaths}
         </h1>
         <h1 style={{ textAlign: "center" }}>Total cases: {totalData.cases}</h1>
       </Container>
-      <Countries selection={selection} />
+      <Countries selection={selection} list={list} />
     </div>
   );
 }

@@ -37,7 +37,7 @@ const styles = {
 };
 
 const SideNav = props => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const sideNavHandler = () => {
     setOpen(!open);
@@ -53,6 +53,7 @@ const SideNav = props => {
     "Critical Condition",
     "Cases Per Million People"
   ];
+
   return (
     <div style={open ? styles.open : styles.closed}>
       <button style={styles.button} onClick={sideNavHandler}>
@@ -62,7 +63,7 @@ const SideNav = props => {
         <Card style={{ width: "100%" }}>
           <Card.Header>Options</Card.Header>
           <ListGroup>
-            {list.map((option, i) => (
+            {props.list.map((option, i) => (
               <ListGroup.Item key={i}>
                 {option}
                 <button
