@@ -9,7 +9,6 @@ const SpinnerIcon = () => (
     <Spinner animation="grow" variant="danger" />
     <Spinner animation="grow" variant="warning" />
     <Spinner animation="grow" variant="info" />
-    <Spinner animation="grow" variant="light" />
     <Spinner animation="grow" variant="dark" />
   </>
 );

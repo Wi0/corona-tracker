@@ -1,80 +1,47 @@
 import React, { useState, useEffect } from "react";
-import CardContainer from "./components/card/Card";
-import SpinnerIcon from "./components/Spinner/Spinner";
 import Nav from "./components/Navbar/Navbar";
-import Controls from "./components/Controls/Controls";
+import Countries from "./containers/Countries/Countries";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { getCountryData, getTotalData } from "./client/client";
+import { getTotalData } from "./client/client";
+import SideNav from "./components/Navbar/SideNav";
 
 function App() {
-  const [countryData, setCountryData] = useState([]);
   const [totalData, setTotalData] = useState({});
   const [loading, setLoading] = useState(false);
+  const [selection, setSelection] = useState([
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ]);
 
   useEffect(() => {
     setLoading(true);
     getTotalData().then(res => {
       setTotalData(res.data);
-    });
-    getCountryData().then(res => {
-      setCountryData(res.data);
       setLoading(false);
     });
   }, []);
 
-  const controlsHandler = event => {
-    const dataCopy = [...countryData];
-    if (event === 1) {
-      dataCopy.sort((a, b) => b.cases - a.cases);
-    }
-    if (event === 2) {
-      dataCopy.sort((a, b) => b.deaths - a.deaths);
-    }
-    if (event === 3) {
-      dataCopy.sort((a, b) => b.deaths / b.cases - a.deaths / a.cases);
-    }
-
-    setCountryData(dataCopy);
+  const selectionHandler = (select, i) => {
+    setSelection({ ...selection, [i]: !select });
   };
 
   return (
     <div className="App">
       <Nav />
+      <SideNav selectionHandler={selectionHandler} selection={selection} />
       <Container>
         <h1 style={{ textAlign: "center" }}>
           Total deaths: {totalData.deaths}
         </h1>
+        <h1 style={{ textAlign: "center" }}>Total cases: {totalData.cases}</h1>
       </Container>
-      <Container style={{ textAlign: "center", padding: "10px 0" }}>
-        <Controls controlsHandler={controlsHandler} />
-      </Container>
-      <Container fluid="true" style={{ margin: "0 40px" }}>
-        <Row className="justify-content-md-center">
-          {!loading && countryData ? (
-            countryData.map(({ country, deaths, cases, recovered }) => (
-              <Col sm={3}>
-                <CardContainer
-                  variant={
-                    cases > 10000
-                      ? "danger"
-                      : cases > 5000
-                      ? "warning"
-                      : "primary"
-                  }
-                  title={country}
-                  deaths={deaths}
-                  cases={cases}
-                  recoveries={recovered}
-                />
-              </Col>
-            ))
-          ) : loading ? (
-            <SpinnerIcon />
-          ) : null}
-        </Row>
-      </Container>
+      <Countries selection={selection} />
     </div>
   );
 }
