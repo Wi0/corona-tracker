@@ -8,7 +8,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 const styles = {
   open: {
-    position: "absolute",
+    position: "fixed",
     top: 55,
     left: 0,
     width: "300px",
@@ -19,7 +19,7 @@ const styles = {
     transition: "0.3s ease"
   },
   closed: {
-    position: "absolute",
+    position: "fixed",
     top: 55,
     left: 0,
     width: "300px",
@@ -81,6 +81,9 @@ const SideNav = props => {
           </ListGroup>
         </Card>
       ) : null}
+      <p style={{ position: "absolute", bottom: 50 }}>
+        All data from worldometers.info/coronavirus/
+      </p>
     </div>
   );
 };

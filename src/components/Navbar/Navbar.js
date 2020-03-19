@@ -7,7 +7,13 @@ const Nav = () => (
   <Navbar
     bg="dark"
     variant="dark"
-    style={{ zIndex: "1000", display: "flex", justifyContent: "space-between" }}
+    style={{
+      zIndex: "1000",
+      display: "flex",
+      justifyContent: "space-between",
+      position: "fixed",
+      width: "100%"
+    }}
   >
     <Navbar.Brand href="#home">Coronavirus Tracker</Navbar.Brand>
     <div

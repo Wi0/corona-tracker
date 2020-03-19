@@ -4,10 +4,6 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./custom.scss";
-import ReactGA from "react-ga";
-
-const trackingId = "UA-154888215-3";
-ReactGA.initialize(trackingId);
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

@@ -4,6 +4,15 @@ import Countries from "./containers/Countries/Countries";
 import Container from "react-bootstrap/Container";
 import { getTotalData } from "./client/client";
 import SideNav from "./components/Navbar/SideNav";
+import CookieBanner from "./components/CookieBanner/CookieBanner";
+import ReactGA from "react-ga";
+
+function initializeReactGA() {
+  ReactGA.initialize("UA-154888215-3");
+  ReactGA.pageview("/homepage");
+}
+
+initializeReactGA();
 
 function App() {
   const [totalData, setTotalData] = useState({});
@@ -57,6 +66,7 @@ function App() {
         <h1 style={{ textAlign: "center" }}>Total cases: {totalData.cases}</h1>
       </Container>
       <Countries selection={selection} list={list} />
+      <CookieBanner />
     </div>
   );
 }
