@@ -59,7 +59,7 @@ function App() {
         selection={selection}
         list={list}
       />
-      <Container>
+      <Container style={{ paddingTop: "60px" }}>
         <h1 style={{ textAlign: "center" }}>
           Total deaths: {totalData.deaths}
         </h1>
