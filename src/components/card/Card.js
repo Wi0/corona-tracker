@@ -8,7 +8,7 @@ const CardContainer = props => {
       <Card
         bg={props.variant}
         text="light"
-        // style={{ width: "18rem" }}
+        style={{ width: "100%" }}
         className="justify-content-center"
       >
         <Card.Header as="h3">{props.title}</Card.Header>

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Nav from "./components/Navbar/Navbar";
 import Countries from "./containers/Countries/Countries";
-import Container from "react-bootstrap/Container";
-import { getTotalData } from "./client/client";
+import Total from "./containers/Total/Total";
 import SideNav from "./components/Navbar/SideNav";
 import CookieBanner from "./components/CookieBanner/CookieBanner";
 import ReactGA from "react-ga";
@@ -15,8 +14,6 @@ function initializeReactGA() {
 initializeReactGA();
 
 function App() {
-  const [totalData, setTotalData] = useState({});
-  const [loading, setLoading] = useState(false);
   const [selection, setSelection] = useState([
     true,
     true,
@@ -27,14 +24,6 @@ function App() {
     true,
     true
   ]);
-
-  useEffect(() => {
-    setLoading(true);
-    getTotalData().then(res => {
-      setTotalData(res.data);
-      setLoading(false);
-    });
-  }, []);
 
   const selectionHandler = (select, i) => {
     setSelection({ ...selection, [i]: !select });
@@ -59,12 +48,7 @@ function App() {
         selection={selection}
         list={list}
       />
-      <Container style={{ paddingTop: "60px" }}>
-        <h1 style={{ textAlign: "center" }}>
-          Total deaths: {totalData.deaths}
-        </h1>
-        <h1 style={{ textAlign: "center" }}>Total cases: {totalData.cases}</h1>
-      </Container>
+      <Total />
       <Countries selection={selection} list={list} />
       <CookieBanner />
     </div>

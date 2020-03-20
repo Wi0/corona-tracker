@@ -2,7 +2,7 @@ import React from "react";
 import Spinner from "react-bootstrap/Spinner";
 
 const SpinnerIcon = () => (
-  <>
+  <div style={{ width: "100%", textAlign: "center" }}>
     <Spinner animation="grow" variant="primary" />
     <Spinner animation="grow" variant="secondary" />
     <Spinner animation="grow" variant="success" />
@@ -10,7 +10,7 @@ const SpinnerIcon = () => (
     <Spinner animation="grow" variant="warning" />
     <Spinner animation="grow" variant="info" />
     <Spinner animation="grow" variant="dark" />
-  </>
+  </div>
 );
 
 export default SpinnerIcon;

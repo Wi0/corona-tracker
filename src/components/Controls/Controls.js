@@ -1,11 +1,12 @@
 import React from "react";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
+import classes from "./Controls.module.css";
 
 function Controls({ controlsHandler, list, selection }) {
   return (
     <ToggleButtonGroup
-      style={{ display: "flex", flexWrap: "wrap" }}
+      className={classes.ButtonGroup}
       type="radio"
       name="options"
       defaultValue={1}
@@ -14,10 +15,17 @@ function Controls({ controlsHandler, list, selection }) {
       {list.map((btn, i) => {
         if (selection[i]) {
           return (
-            <ToggleButton value={i + 1} style={{ margin: "5px 5px 5px 0" }}>
+            <ToggleButton
+              size="sm"
+              key={btn}
+              value={i + 1}
+              className={classes.Button}
+            >
               {btn}
             </ToggleButton>
           );
+        } else {
+          return null;
         }
       })}
     </ToggleButtonGroup>

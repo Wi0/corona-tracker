@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import classes from "./CookieBanner.module.css";
 
 const CookieBanner = () => {
   const [open, setOpen] = useState(true);
@@ -11,21 +12,8 @@ const CookieBanner = () => {
   return (
     <>
       {open ? (
-        <div
-          style={{
-            position: "fixed",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            bottom: "0",
-            width: "100%",
-            height: "60px",
-            backgroundColor: "rgba(50, 50, 50, 0.9)",
-            color: "white",
-            zIndex: "1000"
-          }}
-        >
-          <p style={{ margin: "0 10px" }}>
+        <div className={classes.Banner}>
+          <p className={classes.BannerText}>
             We use cookies to ensure that we give you the best experience on our
             website. By continueing to use this website you consent to this use.
           </p>

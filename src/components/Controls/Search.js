@@ -7,7 +7,7 @@ function Search(props) {
     <InputGroup
       onChange={props.searchHandler}
       className="mb-3"
-      style={{ margin: "20px auto", width: "80%" }}
+      style={{ margin: "20px auto", width: "95%" }}
     >
       <InputGroup.Prepend>
         <InputGroup.Text id="inputGroup-sizing-default">

@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { getCountryData } from "../../client/client";
 import Search from "../../components/Controls/Search";
+import classes from "./Countries.module.css";
 
 function Countries(props) {
   const [countryData, setCountryData] = useState([]);
@@ -57,8 +58,8 @@ function Countries(props) {
   };
 
   return (
-    <div style={{ paddingLeft: "60px" }}>
-      <Container style={{ textAlign: "center", padding: "10px 0" }}>
+    <div className={classes.Container}>
+      <Container className={classes.ControlsContainer}>
         <Controls
           controlsHandler={controlsHandler}
           list={props.list}
@@ -66,7 +67,7 @@ function Countries(props) {
         />
         <Search searchHandler={searchHandler} searchTerm={searchTerm} />
       </Container>
-      <Container fluid="true" style={{ margin: "0 40px 0 40px" }}>
+      <Container fluid="true" className={classes.CountriesContainer}>
         <Row className="justify-content-md-center">
           {!loading && countryData ? (
             countryData

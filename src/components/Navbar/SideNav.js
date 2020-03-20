@@ -5,30 +5,14 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import classes from "./SideNav.module.css";
 
 const styles = {
   open: {
-    position: "fixed",
-    top: 55,
-    left: 0,
-    width: "300px",
-    height: "100%",
-    padding: "10px",
-    backgroundColor: "lightgray",
-    zIndex: "500",
-    transition: "0.3s ease"
+    transform: "translateX(0px)"
   },
   closed: {
-    position: "fixed",
-    top: 55,
-    left: 0,
-    width: "300px",
-    height: "100%",
-    padding: "10px",
-    backgroundColor: "lightgray",
-    zIndex: "500",
-    transform: "translateX(-250px)",
-    transition: "0.3s ease"
+    transform: "translateX(-250px)"
   },
   button: {
     marginBottom: "10px",
@@ -43,19 +27,8 @@ const SideNav = props => {
     setOpen(!open);
   };
 
-  const list = [
-    "Cases",
-    "Deaths",
-    "Recoveries",
-    "Death Rate",
-    "New Cases Today",
-    "Deaths Today",
-    "Critical Condition",
-    "Cases Per Million People"
-  ];
-
   return (
-    <div style={open ? styles.open : styles.closed}>
+    <div className={classes.SideNav} style={open ? styles.open : styles.closed}>
       <button style={styles.button} onClick={sideNavHandler}>
         <FontAwesomeIcon icon={faSlidersH} />
       </button>
@@ -81,7 +54,7 @@ const SideNav = props => {
           </ListGroup>
         </Card>
       ) : null}
-      <p style={{ position: "absolute", bottom: 50 }}>
+      <p className={classes.Source}>
         All data from worldometers.info/coronavirus/
       </p>
     </div>

@@ -2,31 +2,19 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import classes from "./Navbar.module.css";
 
 const Nav = () => (
   <Navbar
     bg="dark"
     variant="dark"
-    style={{
-      zIndex: "1000",
-      display: "flex",
-      justifyContent: "space-between",
-      position: "fixed",
-      width: "100%"
-    }}
+    className={classes.Nav}
+    style={{ position: "fixed" }}
   >
     <Navbar.Brand href="#home">Coronavirus Tracker</Navbar.Brand>
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        width: "180px",
-        color: "white"
-      }}
-    >
-      <h5 style={{ margin: "0px" }}>Created by: Wi0</h5>
-      <a href="https://twitter.com/williamsxcode" style={{ fontSize: "24px" }}>
+    <div className={classes.LinkContainer}>
+      <h5>Created by: Wi0</h5>
+      <a href="https://twitter.com/williamsxcode">
         <FontAwesomeIcon icon={faTwitter} />
       </a>
     </div>
