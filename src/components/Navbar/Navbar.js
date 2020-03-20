@@ -9,7 +9,7 @@ const Nav = () => (
     bg="dark"
     variant="dark"
     className={classes.Nav}
-    style={{ position: "fixed" }}
+    style={{ position: "fixed", justifyContent: "space-between" }}
   >
     <Navbar.Brand href="#home">Coronavirus Tracker</Navbar.Brand>
     <div className={classes.LinkContainer}>
