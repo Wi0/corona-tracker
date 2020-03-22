@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import classes from "./CookieBanner.module.css";
 
-const CookieBanner = () => {
+const CookieBanner = ({ cookieHandler }) => {
   const [open, setOpen] = useState(true);
-  const cookieHandler = () => {
+  const cookieClick = () => {
     setOpen(false);
+    cookieHandler();
   };
 
   return (
@@ -18,7 +19,7 @@ const CookieBanner = () => {
             website. By continueing to use this website you consent to this use.
           </p>
 
-          <button onClick={cookieHandler}>
+          <button onClick={cookieClick}>
             <FontAwesomeIcon icon={faWindowClose} />
           </button>
         </div>

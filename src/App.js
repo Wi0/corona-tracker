@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "./components/Navbar/Navbar";
 import Countries from "./containers/Countries/Countries";
 import Total from "./containers/Total/Total";
@@ -24,9 +24,20 @@ function App() {
     true,
     true
   ]);
+  const [cookieSeen, setCookieSeen] = useState(false);
+
+  useEffect(() => {
+    if (window.localStorage.getItem("cookie") === "seen") {
+      setCookieSeen(true);
+    }
+  }, []);
 
   const selectionHandler = (select, i) => {
     setSelection({ ...selection, [i]: !select });
+  };
+
+  const cookieHandler = () => {
+    window.localStorage.setItem("cookie", "seen");
   };
 
   const list = [
@@ -50,7 +61,7 @@ function App() {
       />
       <Total />
       <Countries selection={selection} list={list} />
-      <CookieBanner />
+      {!cookieSeen ? <CookieBanner cookieHandler={cookieHandler} /> : null}
     </div>
   );
 }
