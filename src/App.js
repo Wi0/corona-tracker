@@ -5,6 +5,9 @@ import Total from "./containers/Total/Total";
 import SideNav from "./components/Navbar/SideNav";
 import CookieBanner from "./components/CookieBanner/CookieBanner";
 import ReactGA from "react-ga";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import FooterBar from "./components/Footer/Footer";
+import History from "./containers/History/History";
 
 function initializeReactGA() {
   ReactGA.initialize("UA-154888215-3");
@@ -52,17 +55,27 @@ function App() {
   ];
 
   return (
-    <div className="App">
-      <Nav />
-      <SideNav
-        selectionHandler={selectionHandler}
-        selection={selection}
-        list={list}
-      />
-      <Total />
-      <Countries selection={selection} list={list} />
-      {!cookieSeen ? <CookieBanner cookieHandler={cookieHandler} /> : null}
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <SideNav
+          selectionHandler={selectionHandler}
+          selection={selection}
+          list={list}
+        />
+        <Total />
+        <Switch>
+          <Route path="/history">
+            <History />
+          </Route>
+          <Route path="/">
+            <Countries selection={selection} list={list} />
+          </Route>
+        </Switch>
+        <FooterBar />
+        {!cookieSeen ? <CookieBanner cookieHandler={cookieHandler} /> : null}
+      </div>
+    </Router>
   );
 }
 
