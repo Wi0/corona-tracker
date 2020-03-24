@@ -2,8 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import RestoreIcon from "@material-ui/icons/Restore";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+import TimelineIcon from "@material-ui/icons/Timeline";
+import PublicIcon from "@material-ui/icons/Public";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import { Link } from "react-router-dom";
 
@@ -35,7 +35,7 @@ export default function FooterBar() {
         to="/"
         style={{ color: "#6bf" }}
         label="Country Data"
-        icon={<RestoreIcon />}
+        icon={<PublicIcon />}
       />
 
       <BottomNavigationAction
@@ -43,7 +43,7 @@ export default function FooterBar() {
         to="/history"
         style={{ color: "#6bf" }}
         label="Timeline"
-        icon={<FavoriteIcon />}
+        icon={<TimelineIcon />}
       />
 
       {/* <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} /> */}
