@@ -1,6 +1,8 @@
 import axios from "axios";
-const API_COUNTRIES = "https://corona.lmao.ninja/countries";
-const API_TOTAL = "https://corona.lmao.ninja/all";
+const API_COUNTRIES =
+  "https://cors-anywhere.herokuapp.com/https://corona.lmao.ninja/countries";
+const API_TOTAL =
+  "https://cors-anywhere.herokuapp.com/https://corona.lmao.ninja/all";
 const API_COUNTRY_LIST = "https://api.covid19api.com/countries";
 
 export const getCountryData = () => {
