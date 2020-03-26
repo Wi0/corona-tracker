@@ -1,0 +1,21 @@
+.CountriesContainer {
+  margin: 0 40px 0 40px;
+}
+
+.ControlsContainer {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.Container {
+  padding-left: 60px;
+}
+
+@media only screen and (max-width: 600px) {
+  .CountriesContainer {
+    margin: 0 5px;
+  }
+  .Container {
+    padding-left: 50px;
+  }
+}
