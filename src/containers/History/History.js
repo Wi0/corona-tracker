@@ -76,7 +76,7 @@ function History(props) {
       </Container>
       <Container
         fluid="true"
-        style={{ height: "600px" }}
+        style={{ height: "600px", paddingBottom: "200px" }}
         className="justify-content-md-center"
       >
         {!loading && historyData.length > 0 ? (
