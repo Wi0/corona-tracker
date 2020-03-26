@@ -55,27 +55,25 @@ function App() {
   ];
 
   return (
-    <Router>
-      <div className="App">
-        <Nav />
-        <SideNav
-          selectionHandler={selectionHandler}
-          selection={selection}
-          list={list}
-        />
-        <Total />
-        <Switch>
-          <Route path="/history">
-            <History />
-          </Route>
-          <Route path="/">
-            <Countries selection={selection} list={list} />
-          </Route>
-        </Switch>
-        <FooterBar />
-        {!cookieSeen ? <CookieBanner cookieHandler={cookieHandler} /> : null}
-      </div>
-    </Router>
+    <div className="App">
+      <Nav />
+      <SideNav
+        selectionHandler={selectionHandler}
+        selection={selection}
+        list={list}
+      />
+      <Total />
+      <Switch>
+        <Route path="/history">
+          <History />
+        </Route>
+        <Route path="/">
+          <Countries selection={selection} list={list} />
+        </Route>
+      </Switch>
+      <FooterBar />
+      {!cookieSeen ? <CookieBanner cookieHandler={cookieHandler} /> : null}
+    </div>
   );
 }
 
